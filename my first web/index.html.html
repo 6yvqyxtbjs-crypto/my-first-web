@@ -1,0 +1,206 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Pixel Garden</title>
+    <style>
+        /* 1. 鼠标指针 */
+        html, body {
+            cursor: url('https://cur.cursors-4u.net/animals/ani-1/ani64.cur'), auto !important;
+            margin: 0; padding: 0;
+            min-height: 100vh;
+        }
+
+        body {
+            background: linear-gradient(135deg, #e0f2fe 0%, #ede9fe 50%, #fce7f3 100%);
+            background-attachment: fixed;
+            font-family: "Segoe UI", "Tahoma", sans-serif;
+            color: #475569;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-x: hidden;
+        }
+
+        /* 顶部滚动条 */
+        .top-marquee {
+            width: 100%;
+            background: rgba(96, 165, 250, 0.9);
+            color: white;
+            padding: 10px 0;
+            position: fixed;
+            top: 0; z-index: 1000;
+            backdrop-filter: blur(10px);
+            font-weight: bold;
+        }
+
+        /* 满天星雨 */
+        .sparkle {
+            position: fixed;
+            pointer-events: none;
+            z-index: 1;
+            color: white;
+            animation: fall linear forwards;
+        }
+        @keyframes fall {
+            0% { transform: translateY(-10vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+        }
+
+        .corner-decor {
+            position: fixed;
+            font-size: 50px;
+            z-index: 5;
+            filter: drop-shadow(2px 2px 5px rgba(0,0,0,0.1));
+            user-select: none;
+            transition: 0.3s;
+        }
+
+        .layout {
+            display: flex;
+            margin-top: 100px;
+            gap: 25px;
+            max-width: 950px;
+            width: 95%;
+            z-index: 10;
+            padding-bottom: 80px;
+        }
+
+        .sidebar, .profile-card, .message-board {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(15px);
+            border: 2px solid rgba(147, 197, 253, 0.5);
+            border-radius: 20px;
+            box-shadow: 10px 10px 0px rgba(251, 207, 232, 0.8);
+        }
+
+        .sidebar { width: 220px; padding: 25px; height: fit-content; }
+        .main-content { flex: 1; display: flex; flex-direction: column; gap: 25px; }
+
+        /* 人物头像框 */
+        .character-box {
+            width: 280px; height: 280px;
+            margin: 0 auto 20px;
+            border: 8px solid white;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 0 0 30px rgba(168, 85, 247, 0.4);
+        }
+        .character-box img { width: 100%; height: 100%; object-fit: cover; }
+
+        /* 核心修改：露娜猫的定位样式 */
+        #luna-sticker {
+            position: fixed;
+            top: 661px;          /* 距离顶部的距离 */
+            left: 47%;         /* 距离右侧的距离 */
+            width: 60px;         /* 猫的大小 */
+            z-index: 100;
+            transform: scaleX(-1); /* 水平翻转，让它看向照片 */
+            pointer-events: none; /* 防止遮挡鼠标点击 */
+            filter: drop-shadow(3px 3px 5px rgba(0,0,0,0.1));
+          }
+
+        .profile-card { padding: 40px; text-align: center; position: relative; } /* 注意这里加了 position: relative */
+        .message-board { padding: 25px; }
+
+        .nav-link { 
+            color: #3b82f6; 
+            text-decoration: none; 
+            display: block; 
+            padding: 12px 0; 
+            font-weight: bold; 
+            border-bottom: 1px dashed #fbcfe8; 
+            transition: 0.3s;
+        }
+        .nav-link:hover { color: #f472b6; padding-left: 10px; }
+
+        .msg { 
+            background: rgba(255, 255, 255, 0.8); 
+            padding: 12px; 
+            border-radius: 12px; 
+            margin-bottom: 10px; 
+            border-left: 5px solid #fbcfe8; 
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+
+    <img src="https://media.giphy.com/media/3UPNs8vXyJESQ/giphy.gif" id="luna-sticker" alt="Luna Cat">
+
+
+
+    <div class="top-marquee">
+        <marquee scrollamount="7">Welcome to my home! (づ｡◕‿‿◕｡)づ ✨   Kittens and lilies everywhere~ ⊂(´･◡･⊂ )∘˚˳°</marquee>
+    </div>
+
+    <div class="corner-decor" style="bottom: 35px; left: 40px;">🎐</div>
+    <div class="corner-decor" style="bottom: 120px; right: 60px;">💐</div>
+
+      <div class="layout">
+        <div class="sidebar">
+            <h2 style="color: #3b82f6; margin-top: 0;">Garden Map</h2>
+            <a href="#" class="nav-link">✿ About Me</a>
+            <a href="#" class="nav-link">✿ My Works</a>
+            <a href="#" class="nav-link">✿ Games</a>
+            <a href="#" class="nav-link">✿ Links</a>
+            <div style="margin-top: 30px; font-size: 12px; color: #94a3b8; background: rgba(255,255,255,0.5); padding: 10px; border-radius: 10px;">
+                <b>Current Mood:</b> <br>Dreaming of stars ☁️
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="profile-card">
+                
+                <div class="character-box">
+                    <img src="me.jpg" alt="Persona">
+                </div>
+                <h1 style="color: #1e40af; margin-bottom: 5px;">My Blue Universe</h1>
+                <p style="color: #7c3aed; font-weight: bold;">(ﾐ●w●ﾐ)  ✧  (✿◠‿◠)</p>
+                <p style="color: #64748b; font-style: italic; font-size: 14px;">"A quiet space where the sky is always blue."</p>
+            </div>
+
+            <div class="message-board">
+                <h3 style="color: #f472b6; margin-top: 0;">Guestbook</h3>
+                <div style="display: flex; gap: 10px; margin-bottom: 20px;">
+                    <input type="text" id="msgInput" placeholder="Leave a paw print..." style="flex:1; padding: 12px; border-radius: 10px; border: 2px solid #93c5fd; outline: none;">
+                    <button onclick="addMsg()" style="background:#60a5fa; color:white; border:none; padding:10px 20px; border-radius:10px; cursor:pointer; font-weight:bold;">Post</button>
+                </div>
+                <div id="msgList">
+                    <div class="msg">🐾 <b>Admin:</b> Glad you're here! Feel free to say hi.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function createSparkle() {
+            const sparkle = document.createElement('div');
+            sparkle.className = 'sparkle';
+            const shapes = ['✧', '✦', '✨', '⛧', '🌸', '❄️', '🐾', '🍫'];
+            sparkle.innerText = shapes[Math.floor(Math.random() * shapes.length)];
+            sparkle.style.left = Math.random() * 100 + 'vw';
+            sparkle.style.fontSize = Math.random() * 18 + 12 + 'px';
+            const duration = Math.random() * 4 + 4;
+            sparkle.style.animationDuration = duration + 's';
+            document.body.appendChild(sparkle);
+            setTimeout(() => { sparkle.remove(); }, duration * 1000);
+        }
+        setInterval(createSparkle, 200);
+
+        function addMsg() {
+            const input = document.getElementById('msgInput');
+            if (input.value.trim() !== "") {
+                const list = document.getElementById('msgList');
+                const div = document.createElement('div');
+                div.className = 'msg';
+                div.innerHTML = `<b>Guest:</b> ${input.value}`;
+                list.prepend(div);
+                input.value = "";
+            }
+        }
+    </script>
+</body>
+</html>
